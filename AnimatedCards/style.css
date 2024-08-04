@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+  align-items: start;
+}
+
+.card {
+  border: none;
+  border-radius: 0.25rem;
+  background-color: white;
+  box-shadow: 0 2px 5px 0 hsl(0, 0%, 30%);
+  overflow: hidden;
+}
+
+.card-header {
+  font-size: 1.5rem;
+  overflow: hidden;
+  margin: 1rem;
+}
+
+.card-header.card-image {
+  margin: 0;
+  overflow: hidden;
+}
+
+.card-header.card-image > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  transition: 200ms transform ease-in-out;
+}
+
+.card:hover > .card-header.card-image > img {
+  transform: scale(1.025);
+}
+
+.card-body {
+  margin: 0 1rem;
+  font-size: 1rem;
+}
+
+.card-footer {
+  margin: 0.9rem;
+}
+
+.btn {
+  --color: hsl(200, 50%, 50%);
+  border: none;
+  background-color: var(--color);
+  color: white;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+}
+
+.btn.btn-outline {
+  background-color: white;
+  border: 1px solid var(--color);
+  color: var(--color);
+}
+
+.btn:hover,
+.btn:focus {
+  outline: none;
+  background-color: hsl(200, 50%, 40%);
+}
+
+.btn.btn-outline:hover,
+.btn.btn-outline:focus {
+  outline: none;
+  background-color: hsl(200, 50%, 90%);
+}
