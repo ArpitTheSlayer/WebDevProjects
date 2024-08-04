@@ -1,0 +1,119 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --primary-dark-hsl: 200, 100%, 10%;
+  --primary-hsl: 200, 100%, 50%;
+  --primary-light-hsl: 200, 100%, 90%;
+  --success-hsl: 100, 60%, 50%;
+  --error-hsl: 0, 60%, 50%;
+}
+
+body {
+  margin: 0;
+}
+
+.full-screen-container {
+  background-image: url(background-image.jpg);
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  --color: hsla(var(--primary-dark-hsl), 0.7);
+  background-color: var(--color);
+  padding: 3rem 2rem;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px 0 var(--color);
+}
+
+.title {
+  margin-top: 0;
+  color: white;
+  font-size: 2rem;
+  font-weight: normal;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  label {
+    font-size: 1rem;
+    font-weight: lighter;
+    color: white;
+  }
+
+  input {
+    font-size: 1.25rem;
+    border: none;
+    color: white;
+    background-color: hsla(var(--primary-light-hsl), 0.3);
+    border-radius: 5px;
+    padding: 0.75rem;
+  }
+
+  input:focus {
+    outline: 1px solid hsl(var(--primary-hsl));
+  }
+}
+
+.message {
+  display: none;
+  font-size: 0.75rem;
+}
+
+.input-group.success {
+  input {
+    outline: 1px solid hsl(var(--success-hsl));
+  }
+  .message {
+    display: block;
+    color: hsl(var(--success-hsl));
+  }
+}
+
+.input-group.error {
+  input {
+    outline: 1px solid hsl(var(--error-hsl));
+  }
+  .message {
+    display: block;
+    color: hsl(var(--error-hsl));
+  }
+}
+
+.login-button {
+  color: white;
+  font-size: 1.5rem;
+  background-color: hsla(var(--primary-hsl), 0.3);
+  border: 1px solid hsl(var(--primary-hsl));
+  border-radius: 5px;
+  padding: 0.75rem;
+  cursor: pointer;
+}
+
+.login-button:hover,
+.login-button:focus {
+  background-color: hsla(var(--primary-hsl), 0.5);
+  outline: none;
+}
