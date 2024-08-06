@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background-image: url(cat.jpg);
+  background-size: cover;
+  background-position: top;
+  position: relative;
+}
+
+.avatar::before,
+.avatar::after {
+  --scale: 0;
+  --arrow-size: 20px;
+  --translate-y: -100%;
+  --tooltip-color: #333;
+
+  position: absolute;
+  top: -1rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(var(--translate-y, 0))
+    scale(var(--scale, 0));
+  transition: 200ms transform ease-in-out;
+}
+
+.avatar::before {
+  --translate-y: calc(-100% - var(--arrow-size));
+
+  content: attr(data-tooltip);
+  background-color: var(--tooltip-color);
+  color: white;
+  padding: 1rem;
+  width: max-content;
+  max-width: 100%;
+  border-radius: 0.5rem;
+  font-size: 2rem;
+  text-align: center;
+  transform-origin: bottom;
+}
+
+.avatar::after {
+  --translate-y: calc(-1 * var(--arrow-size));
+
+  content: "";
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: top;
+}
+
+.avatar:hover::before,
+.avatar:hover::after {
+  --scale: 1;
+}
