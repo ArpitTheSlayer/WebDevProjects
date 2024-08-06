@@ -1,0 +1,115 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  gap: 2rem;
+}
+
+.btn {
+  --btn-color: #e2e2e2;
+  --accent-color: #0af;
+  --border-size: 0.4rem;
+
+  border: none;
+  width: max-content;
+  font-size: 2rem;
+  padding: 1rem;
+  background-color: var(--btn-color);
+  position: relative;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.btn-border-pop::before {
+  border: var(--border-size) solid var(--btn-color);
+  transition: top, left, right, bottom, 0.2s ease-in-out;
+}
+
+.btn-border-pop:hover::before,
+.btn-border-pop:focus::before {
+  top: calc(-2 * var(--border-size));
+  left: calc(-2 * var(--border-size));
+  right: calc(-2 * var(--border-size));
+  bottom: calc(-2 * var(--border-size));
+}
+
+.btn-background-slide::before {
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+  transform-origin: left;
+}
+
+.btn-background-slide:hover::before,
+.btn-background-slide:focus::before {
+  transform: scaleX(1);
+}
+
+.btn-background-slide {
+  z-index: 1;
+  transition: color 0.2s ease-in-out;
+}
+
+.btn-background-slide:hover,
+.btn-background-slide:focus {
+  color: white;
+}
+
+.btn-background-circle::before {
+  border-radius: 50%;
+  background-color: var(--btn-color);
+  transform: scale(1.5);
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-background-circle:hover::before,
+.btn-background-circle:focus::before {
+  transform: scale(0);
+}
+
+.btn-background-circle {
+  overflow: hidden;
+  z-index: 1;
+  background-color: var(--accent-color);
+  transition: color 0.2s ease-in-out;
+}
+
+.btn-background-circle:hover,
+.btn-background-circle:focus {
+  color: white;
+}
+
+.btn-border-underline::before {
+  top: unset;
+  height: var(--border-size);
+  background-color: var(--accent-color);
+  z-index: unset;
+  transform: scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-border-underline:hover::before,
+.btn-border-underline:focus::before {
+  transform: scaleX(1);
+}
