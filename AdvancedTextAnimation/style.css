@@ -1,0 +1,89 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  --color: #ff2c75;
+  --bg-color: linear-gradient(45deg, #02001f, #1f1b4e);
+
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  font-size: 4rem;
+  font-weight: bold;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-item {
+  position: relative;
+  width: max-content;
+}
+
+.list-item:hover {
+  cursor: pointer;
+}
+
+.list-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10%;
+  right: -10%;
+  height: 5px;
+  background-color: var(--color);
+  z-index: 1;
+  transform: translateY(-50%) scaleX(0);
+  transition: transform 0.2s ease-in-out;
+}
+
+.list-item:hover::before {
+  transform: translateY(-50%) scaleX(1);
+}
+
+.split-text {
+  position: relative;
+  color: transparent;
+}
+
+.list-item > .split-text::before,
+.list-item > .split-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  color: var(--color);
+  transition: color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.list-item:hover > .split-text::before,
+.list-item:hover > .split-text::after {
+  color: white;
+  transform: skewX(20deg);
+}
+
+.list-item:hover > .split-text::before {
+  top: 0;
+  bottom: 50%;
+}
+
+.list-item:hover > .split-text::after {
+  top: 50%;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+}

@@ -1,0 +1,37 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  --color: #ff2c75;
+  --bg-color: linear-gradient(45deg, #02001f, #1f1b4e);
+
+  margin: 2rem;
+  background: var(--bg-color);
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: var(--color);
+  min-height: 100vh;
+  font-size: 1.25rem;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  padding: 0.5rem;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover,
+a:active {
+  color: var(--color);
+}
