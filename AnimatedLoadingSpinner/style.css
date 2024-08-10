@@ -41,6 +41,7 @@
   height: 100%;
   border: 10px solid transparent;
   border-radius: 50%;
+  pointer-events: none;
   mix-blend-mode: overlay;
   animation: rotate var(--duration) var(--timing) infinite;
 }
