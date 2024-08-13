@@ -1,0 +1,380 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+.main-container {
+  display: flex;
+}
+
+.video-container {
+  width: 95%;
+}
+
+.videos {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 4rem 1rem;
+  padding: 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.video-section:first-child {
+  border-top: none;
+}
+
+.video-section-title {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: -2rem;
+}
+
+.video-section-close-btn {
+  background: none;
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5em;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.video-section-close-btn:hover {
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
+.thumbnail {
+  position: relative;
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.thumbnail::before {
+  content: attr(data-duration);
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  right: 5px;
+  bottom: 5px;
+  color: white;
+  padding: 0.2rem;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  min-width: 250px;
+  min-height: 150px;
+  background-color: #bbb;
+}
+
+.video-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 0.5rem;
+}
+
+.channel-image,
+.user-icon {
+  min-width: 36px;
+  min-height: 36px;
+  border-radius: 50%;
+  background-color: #bbb;
+}
+
+.video-details {
+  margin-left: 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-title {
+  font-size: 1.2em;
+  color: black;
+  text-decoration: none;
+  margin-bottom: 0.2em;
+}
+
+.channel-name,
+.video-stats {
+  font-size: 0.9em;
+  color: #616161;
+  text-decoration: none;
+}
+
+.channel-name:hover {
+  color: #2e2e2e;
+}
+
+.video-options {
+  width: 24px;
+}
+
+.categories {
+  margin: 1rem;
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.category {
+  border: none;
+  background-color: hsla(0, 0%, 0%, 0.05);
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: inherit;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.category:not(.active):hover {
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  margin: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-btn {
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+  z-index: 3;
+  border-radius: 50%;
+  padding: 0.5rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.menu-btn:hover {
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.menu-btn > input {
+  display: none;
+}
+
+.collapsed-sidebar {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.1rem;
+}
+
+.collapsed-sidebar > button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  width: 5rem;
+  height: 5rem;
+  transition: background-color 0.2s ease-in-out;
+  font-size: 0.7em;
+}
+
+.collapsed-sidebar > button:hover {
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.expanded-sidebar {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding-top: 5rem;
+  width: 250px;
+  min-height: 150vh;
+  top: 0;
+  left: -100%;
+  z-index: 2;
+  background-color: white;
+}
+
+.menu-btn:has(input:checked) + .expanded-sidebar {
+  left: 0;
+}
+
+.expanded-sidebar > button {
+  border: none;
+  background-color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin: 0 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.expanded-sidebar > button:hover {
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.youtube-logo {
+  z-index: 3;
+}
+
+.youtube-logo,
+.icons {
+  height: 1.5rem;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.search-input {
+  padding: 0 1rem;
+  border: 1px solid #aaa;
+  border-top-left-radius: 999px;
+  border-bottom-left-radius: 999px;
+  font-size: inherit;
+  min-height: 3rem;
+  max-width: 30%;
+  flex-grow: 1;
+}
+
+.search-input:focus {
+  border-color: #069;
+  outline: none;
+}
+
+.search-btn {
+  width: 4rem;
+  height: 3rem;
+  border: 1px solid #aaa;
+  border-left: none;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+}
+
+.voice-search {
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 1rem;
+}
+
+.search-btn,
+.voice-search {
+  background-color: hsla(0, 0%, 0%, 0.05);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.search-btn:hover,
+.voice-search:hover {
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.user-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-options > button {
+  border: none;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.user-options > button:hover {
+  background-color: hsla(0, 0%, 0%, 0.1);
+}
+
+.notification-btn {
+  position: relative;
+}
+
+.notification-btn::before {
+  content: "9+";
+  position: absolute;
+  background-color: hsl(0, 100%, 40%);
+  color: white;
+  top: 10%;
+  left: 50%;
+  border-radius: 999px;
+  padding: 0.1rem 0.3rem;
+}
+
+.user-icon {
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .search-bar {
+    justify-content: flex-end;
+    margin-right: 1rem;
+  }
+
+  .search-input {
+    display: none;
+  }
+
+  .search-btn {
+    border: none;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }
+
+  .search-btn,
+  .voice-search {
+    background-color: white;
+  }
+
+  .search-btn:hover,
+  .voice-search:hover {
+    background-color: hsla(0, 0%, 0%, 0.1);
+  }
+}
+
+@media (max-width: 500px) {
+  .navbar {
+    width: 100%;
+  }
+
+  .voice-search,
+  .notification-btn {
+    display: none;
+  }
+}
