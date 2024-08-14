@@ -14,7 +14,7 @@ body {
 }
 
 .video-container {
-  width: 95%;
+  width: calc(95% - 80px);
 }
 
 .videos {
@@ -131,7 +131,7 @@ body {
   margin: 1rem;
   display: flex;
   white-space: nowrap;
-  overflow: hidden;
+  overflow-x: scroll;
 }
 
 .category {
@@ -156,9 +156,10 @@ body {
 
 .navbar {
   display: flex;
-  margin: 1rem;
   justify-content: space-between;
   align-items: center;
+  margin: 1rem;
+  width: 90%;
 }
 
 .menu-btn {
@@ -336,11 +337,7 @@ body {
   cursor: pointer;
 }
 
-@media (max-width: 700px) {
-  .navbar {
-    width: 100%;
-  }
-
+@media (max-width: 770px) {
   .search-bar {
     justify-content: flex-end;
     margin-right: 1rem;
@@ -368,9 +365,13 @@ body {
   }
 }
 
-@media (max-width: 500px) {
-  .navbar {
+@media (max-width: 550px) {
+  .video-container {
     width: 100%;
+  }
+
+  .collapsed-sidebar {
+    display: none;
   }
 
   .voice-search,
