@@ -21,6 +21,14 @@ body {
   background-color: var(--bg-color);
 }
 
+.timeline-section {
+  margin-bottom: 3rem;
+}
+
+.timeline-section:last-of-type {
+  margin-bottom: 0;
+}
+
 .timeline-header {
   display: flex;
   justify-content: space-between;
