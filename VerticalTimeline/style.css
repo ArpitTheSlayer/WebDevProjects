@@ -1,0 +1,126 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+:root {
+  --dark-color: hsl(215, 30%, 30%);
+  --light-color: hsl(215, 20%, 70%);
+  --bg-color: #f9f9fb;
+  --card-color: #fff;
+  --card-shadow: 0 0 0.5rem 1px var(--light-color);
+  --timeline-margin: 2rem;
+  --grid-gap: 2rem;
+  --avatar-size: 3rem;
+}
+
+body {
+  margin: 1rem;
+  background-color: var(--bg-color);
+}
+
+.timeline-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--light-color);
+  margin-bottom: var(--timeline-margin);
+  padding-bottom: 0.5rem;
+  font-size: 1.1em;
+}
+
+.timeline-title {
+  color: var(--dark-color);
+  font-weight: bold;
+}
+
+.timeline-date {
+  color: var(--light-color);
+}
+
+.notification-grid {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--grid-gap);
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+.avatar {
+  position: relative;
+}
+
+.avatar:first-child:before {
+  content: "";
+  width: 1px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: calc(var(--timeline-margin) * -1);
+  bottom: 100%;
+  background-color: var(--light-color);
+}
+
+.avatar::after {
+  content: "";
+  width: 1px;
+  height: calc(100% + var(--grid-gap));
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  top: var(--avatar-size);
+  background-color: var(--light-color);
+}
+
+.avatar:nth-last-child(2)::after {
+  display: none;
+}
+
+.avatar > img {
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  object-fit: cover;
+  object-position: top;
+  border: 2px solid var(--card-color);
+  border-radius: 50%;
+  box-shadow: var(--card-shadow);
+}
+
+.notification-card {
+  background-color: var(--card-color);
+  box-shadow: var(--card-shadow);
+  border-radius: 4px;
+  padding: 1rem;
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  height: 1.5em;
+}
+
+.notification-title {
+  flex: 1;
+  color: var(--dark-color);
+  font-weight: bold;
+}
+
+.notification-time {
+  color: var(--light-color);
+}
+
+.notification-content {
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 4px;
+  background-color: var(--bg-color);
+  color: var(--dark-color);
+  font-size: 0.9em;
+}
