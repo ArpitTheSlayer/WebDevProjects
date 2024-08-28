@@ -1,0 +1,42 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.tabs {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid black;
+  margin: 0;
+  padding: 0;
+}
+
+.tab {
+  padding: 1rem;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #ccc;
+}
+
+.tab:hover {
+  background-color: #aaa;
+}
+
+.tab-content {
+  display: none;
+  margin: 0 20px;
+}
+
+.tab-content.active {
+  display: block;
+}

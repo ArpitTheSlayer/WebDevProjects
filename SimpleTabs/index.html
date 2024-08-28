@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Simple Tabs</title>
+  </head>
+  <body>
+    <nav>
+      <ul class="tabs">
+        <li class="tab active" data-tab-target="#home">Home</li>
+        <li class="tab" data-tab-target="#pricing">Pricing</li>
+        <li class="tab" data-tab-target="#about">About</li>
+      </ul>
+    </nav>
+    <div class="tab-contents">
+      <div class="tab-content active" id="home">
+        <h1>Home</h1>
+        <p>This is the home page</p>
+      </div>
+      <div class="tab-content" id="pricing">
+        <h1>Pricing</h1>
+        <p>Some information about pricing</p>
+      </div>
+      <div class="tab-content" id="about">
+        <h1>About</h1>
+        <p>Some information about me</p>
+      </div>
+    </div>
+  </body>
+</html>
