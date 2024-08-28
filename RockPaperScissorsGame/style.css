@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #ccc;
+}
+
+.choices {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.choice {
+  font-size: 5rem;
+  background: none;
+  border: none;
+  outline: none;
+  margin: 0 1rem;
+  transform: scale(1);
+  transition: 0.1s;
+}
+
+.choice:hover,
+.choice:focus {
+  transform: scale(1.2);
+}
+
+.results {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.result-score {
+  font-size: 0.75em;
+  margin-left: 1rem;
+  opacity: 0.5;
+}
+
+.result {
+  opacity: 0.5;
+}
+
+.winner {
+  opacity: 1;
+  font-size: 1.5em;
+}
