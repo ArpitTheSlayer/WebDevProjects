@@ -1,0 +1,67 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal {
+  position: fixed;
+  width: 37.5rem;
+  max-width: 80%;
+  max-height: 80vh;
+  background: white;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  overflow-y: scroll;
+  border-radius: 0.5rem;
+  translate: -50% -50%;
+  transform: scale(0);
+  transition: 0.2s ease-in-out;
+}
+
+.modal.active {
+  transform: scale(1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid black;
+  padding: 0.5rem 1rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.close-modal {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.modal-body {
+  padding: 0.5rem 1rem;
+  text-align: justify;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: hsla(0, 0%, 0%, 0.5);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
