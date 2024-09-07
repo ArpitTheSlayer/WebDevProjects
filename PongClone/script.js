@@ -12,6 +12,10 @@ document.addEventListener("mousemove", (e) => {
   playerPaddle.position = (e.y / window.innerHeight) * 100;
 });
 
+document.addEventListener("touchmove", (e) => {
+  playerPaddle.position = (e.touches[0].clientY / window.innerHeight) * 100;
+});
+
 window.requestAnimationFrame(update);
 
 function update(time) {
@@ -47,6 +51,6 @@ function handleLose() {
 
 function changeColor(delta, root) {
   let hue = parseFloat(getComputedStyle(root).getPropertyValue("--hue"));
-  hue += hue * delta * 0.00005;
-  root.style.setProperty("--hue", hue);
+  hue += delta / 100;
+  root.style.setProperty("--hue", hue % 360);
 }
