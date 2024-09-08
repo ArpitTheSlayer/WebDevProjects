@@ -36,18 +36,23 @@ body {
   height: 100%;
   background: hsl(270, 100%, 70%);
   z-index: -1;
+  transition: width 0.5s;
 }
 
 #password {
   width: 90%;
   background: hsl(270, 100%, 20%);
-  border: 1px solid hsl(270, 100%, 50%);
+  border: 2px solid hsl(270, 100%, 50%);
   border-radius: 0.5rem;
   outline: none;
   color: hsl(270, 100%, 90%);
   margin: 2rem;
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
+}
+
+#password:focus {
+  border-color: hsl(270, 100%, 70%);
 }
 
 .reasons * {
